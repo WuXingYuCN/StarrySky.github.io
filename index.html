@@ -155,19 +155,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-堡垒机" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-堡垒机学习一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/StarrySky.github.io/2018/08/24/堡垒机/">堡垒机学习(一)</a>
+      <a class="article-title" href="/StarrySky.github.io/2018/08/24/堡垒机学习一/">堡垒机学习(一)</a>
     </h1>
   
 
         
-        <a href="/StarrySky.github.io/2018/08/24/堡垒机/" class="archive-article-date">
+        <a href="/StarrySky.github.io/2018/08/24/堡垒机学习一/" class="archive-article-date">
   	<time datetime="2018-08-24T00:36:53.162Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-24</time>
 </a>
         
@@ -181,11 +181,6 @@
 <p>(1)LDAP<br>在新建用户时有LDAP导入这一选项，那么什么是LDAP呢？<br>下面内容整理自“<a href="https://www.jianshu.com/p/7e4d99f6baaf”，个人觉得作者写的很好。" target="_blank" rel="noopener">https://www.jianshu.com/p/7e4d99f6baaf”，个人觉得作者写的很好。</a><br>LDAP是轻量目录访问协议(Lightweight Directory Access Protocl)的缩写,支持TCP/IP协议，基于该标准，微软提出了AD(Active Directory)的概念。<br>那么什么是AD？<br>AD可以理解为数据库，LDAP也可以理解为数据库，数据库都有server端和client端，server端用来存放资源，client端用来支持增删查改等操作。通常所说的LDAP是指运行这个数据库的服务器。<br>AD = LDAP服务器 + LDAP应用<br>LDAP是树形存储，其存储结构如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">总结一下LDAP树形数据库如下：</span><br><span class="line">dn ：一条记录的详细位置</span><br><span class="line">dc ：一条记录所属区域    (哪一颗树)</span><br><span class="line">ou ：一条记录所属组织    （哪一个分支）</span><br><span class="line">cn/uid：一条记录的名字/ID   (哪一个苹果名字)</span><br><span class="line">LDAP目录树的最顶部就是根，也就是所谓的“基准DN<span class="string">"</span></span><br></pre></td></tr></table></figure></p>
 <p>LDAP存储适合什么样的场景呢？<br>LDAP的查询效率很高，适合于需要存储大量的数据，而且这些数据不需要经常被改动，并且需要很快速的查找。<br>最后粘上原文作者对LDAP的总结，很到位:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、LDAP的结构用树来表示，而不是用表格。正因为这样，就不能用SQL语句了。</span><br><span class="line">2、LDAP可以很快地得到查询结果，不过在写方面，就慢得多。</span><br><span class="line">3、LDAP提供了静态数据的快速查询方式。</span><br><span class="line">4、Client/server模型，Server 用于存储数据，Client提供操作目录信息树的工具。</span><br><span class="line">5、LDAP是一种开放Internet标准，LDAP协议是跨平台的Interent协议。</span><br></pre></td></tr></table></figure></p>
 <p>本文先到这里，后续会继续更新。</p>
-<p>这段payload判断库名的第一个字母是否为CHAR(119),即小写的W,若判断结果为真，则会通过BENCHMARK()函数造成较长延时；如果不为真，则该语句将很快执行完，攻击者遍历所有字母，直到将整个数据库名全部验证完成为止。</p>
-<h2 id="2-数据库攻击常见技巧"><a href="#2-数据库攻击常见技巧" class="headerlink" title="2 数据库攻击常见技巧"></a>2 数据库攻击常见技巧</h2><p>需要注意的是，针对不同的数据库，SQL注入攻击的技巧是不同的。</p>
-<h3 id="2-1-常见的攻击技巧"><a href="#2-1-常见的攻击技巧" class="headerlink" title="2.1 常见的攻击技巧"></a>2.1 常见的攻击技巧</h3><p>SQL注入可以猜解出数据库的对应版本，下面的payload判断MySQL的版本是否为4<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.site.com/news.php?id=5 and substring(@@version,1,1)=4</span><br></pre></td></tr></table></figure></p>
-<p>下面的payload利用union select来分别确认表名admin以及列名passwd是否存在<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">id=5 union all select 1,2,3 from</span><br><span class="line">id=5 union all select 1,2,passwd from admin</span><br></pre></td></tr></table></figure></p>
-<h3 id="2-2-命令执行"><a href="#2-2-命令执行" class="headerlink" title="2.2 命令执行"></a>2.2 命令执行</h3><p>SQL注入</p>
 
       
 
@@ -198,7 +193,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/StarrySky.github.io/2018/08/24/堡垒机/">展开全文 >></a>
+          <a class="article-more-a" href="/StarrySky.github.io/2018/08/24/堡垒机学习一/">展开全文 >></a>
         </p>
       
 
