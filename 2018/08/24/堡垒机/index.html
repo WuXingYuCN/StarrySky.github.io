@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | StarrySky</title>
+  <title>堡垒机学习(一) | StarrySky</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="白桦 青空 南风">
-<meta property="og:type" content="website">
-<meta property="og:title" content="StarrySky">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="最近在学习堡垒机相关知识，并基于现有堡垒机的系统上进行自动化开发，本着知其然且知其所以然的精神，在这一系列我将对堡垒机的学习开发历程做一个记录。 1 堡垒机概念堡垒机又称跳板机，通俗的讲是所有服务器的访问入口，相当于给服务器访问加了一道门槛，为什么要这样做？因为对于一个成熟的公司来说，安全管理一定规模的服务器至关重要，以下两点必须得以保证：(1)只有特定的人才有权限访问特定的服务器，同时，权限管理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="堡垒机学习(一)">
+<meta property="og:url" content="http://yoursite.com/2018/08/24/堡垒机/index.html">
 <meta property="og:site_name" content="StarrySky">
-<meta property="og:description" content="白桦 青空 南风">
+<meta property="og:description" content="最近在学习堡垒机相关知识，并基于现有堡垒机的系统上进行自动化开发，本着知其然且知其所以然的精神，在这一系列我将对堡垒机的学习开发历程做一个记录。 1 堡垒机概念堡垒机又称跳板机，通俗的讲是所有服务器的访问入口，相当于给服务器访问加了一道门槛，为什么要这样做？因为对于一个成熟的公司来说，安全管理一定规模的服务器至关重要，以下两点必须得以保证：(1)只有特定的人才有权限访问特定的服务器，同时，权限管理">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-24T03:00:07.560Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="StarrySky">
-<meta name="twitter:description" content="白桦 青空 南风">
+<meta name="twitter:title" content="堡垒机学习(一)">
+<meta name="twitter:description" content="最近在学习堡垒机相关知识，并基于现有堡垒机的系统上进行自动化开发，本着知其然且知其所以然的精神，在这一系列我将对堡垒机的学习开发历程做一个记录。 1 堡垒机概念堡垒机又称跳板机，通俗的讲是所有服务器的访问入口，相当于给服务器访问加了一道门槛，为什么要这样做？因为对于一个成熟的公司来说，安全管理一定规模的服务器至关重要，以下两点必须得以保证：(1)只有特定的人才有权限访问特定的服务器，同时，权限管理">
   
     <link rel="alternative" href="/atom.xml" title="StarrySky" type="application/atom+xml">
   
@@ -153,130 +154,155 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-堡垒机" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      堡垒机学习(一)
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/StarrySky.github.io/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/StarrySky.github.io/2018/08/24/堡垒机/" class="archive-article-date">
+
+        
+        <a href="/StarrySky.github.io/2018/08/24/堡垒机/" class="archive-article-date">
   	<time datetime="2018-08-24T00:36:53.162Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-24</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/StarrySky.github.io/2018/08/24/堡垒机/">堡垒机学习(一)</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在学习堡垒机相关知识，并基于现有堡垒机的系统上进行自动化开发，本着知其然且知其所以然的精神，在这一系列我将对堡垒机的学习开发历程做一个记录。</p>
+<h2 id="1-堡垒机概念"><a href="#1-堡垒机概念" class="headerlink" title="1 堡垒机概念"></a>1 堡垒机概念</h2><p>堡垒机又称跳板机，通俗的讲是所有服务器的访问入口，相当于给服务器访问加了一道门槛，为什么要这样做？因为对于一个成熟的公司来说，安全管理一定规模的服务器至关重要，以下两点必须得以保证：<br>(1)只有特定的人才有权限访问特定的服务器，同时，权限管理也将对服务器的访问集中到一个接口，这样无疑方便了服务器访问的管理，很好理解，只留一个门便于管理。<br>(2)对访问服务器的所有操作能够记录，并能够据此精确定位责任人，以及其操作。这个功能也很好理解，对于服务器管理来说，不仅需要知道谁访问了该终端，还需要知道访问者在终端上做了什么操作，该功能是对早期纯“跳板机”的改进。<br>读者可以顾名思义，加深对于堡垒机概念的理解。何为“堡垒”？堡垒是关卡，能记录什么人在何时通过了关卡，也能决定什么人有权限访问关卡，同时还能记录通过关卡的人做了什么。把这些类比到服务器管理，就是堡垒机的作用。</p>
+<h2 id="2-堡垒机管理系统初探"><a href="#2-堡垒机管理系统初探" class="headerlink" title="2 堡垒机管理系统初探"></a>2 堡垒机管理系统初探</h2><p>公司采购了某厂商的堡垒机系统，下面我将在不涉及相关隐私的情况下对该系统的相关知识进行介绍。<br>首先要明确一个基准，堡垒机系统的开发必须牢牢围绕其主要功能：权限管理以及行为审计。<br>虽然是一个小白，但是得益于堡垒机系统的傻瓜式操作，要理解堡垒机的使用方法还是比较轻松的，关键是一些专业术语的认识，我会一一进行介绍。</p>
+<p>(1)LDAP<br>在新建用户时有LDAP导入这一选项，那么什么是LDAP呢？<br>下面内容整理自“<a href="https://www.jianshu.com/p/7e4d99f6baaf”，个人觉得作者写的很好。" target="_blank" rel="noopener">https://www.jianshu.com/p/7e4d99f6baaf”，个人觉得作者写的很好。</a><br>LDAP是轻量目录访问协议(Lightweight Directory Access Protocl)的缩写,支持TCP/IP协议，基于该标准，微软提出了AD(Active Directory)的概念。<br>那么什么是AD？<br>AD可以理解为数据库，LDAP也可以理解为数据库，数据库都有server端和client端，server端用来存放资源，client端用来支持增删查改等操作。通常所说的LDAP是指运行这个数据库的服务器。<br>AD = LDAP服务器 + LDAP应用<br>LDAP是树形存储，其存储结构如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">总结一下LDAP树形数据库如下：</span><br><span class="line">dn ：一条记录的详细位置</span><br><span class="line">dc ：一条记录所属区域    (哪一颗树)</span><br><span class="line">ou ：一条记录所属组织    （哪一个分支）</span><br><span class="line">cn/uid：一条记录的名字/ID   (哪一个苹果名字)</span><br><span class="line">LDAP目录树的最顶部就是根，也就是所谓的“基准DN<span class="string">"</span></span><br></pre></td></tr></table></figure></p>
+<p>LDAP存储适合什么样的场景呢？<br>LDAP的查询效率很高，适合于需要存储大量的数据，而且这些数据不需要经常被改动，并且需要很快速的查找。<br>最后粘上原文作者对LDAP的总结，很到位:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、LDAP的结构用树来表示，而不是用表格。正因为这样，就不能用SQL语句了。</span><br><span class="line">2、LDAP可以很快地得到查询结果，不过在写方面，就慢得多。</span><br><span class="line">3、LDAP提供了静态数据的快速查询方式。</span><br><span class="line">4、Client/server模型，Server 用于存储数据，Client提供操作目录信息树的工具。</span><br><span class="line">5、LDAP是一种开放Internet标准，LDAP协议是跨平台的Interent协议。</span><br></pre></td></tr></table></figure></p>
+<p>本文先到这里，后续会继续更新。</p>
+<p>这段payload判断库名的第一个字母是否为CHAR(119),即小写的W,若判断结果为真，则会通过BENCHMARK()函数造成较长延时；如果不为真，则该语句将很快执行完，攻击者遍历所有字母，直到将整个数据库名全部验证完成为止。</p>
+<h2 id="2-数据库攻击常见技巧"><a href="#2-数据库攻击常见技巧" class="headerlink" title="2 数据库攻击常见技巧"></a>2 数据库攻击常见技巧</h2><p>需要注意的是，针对不同的数据库，SQL注入攻击的技巧是不同的。</p>
+<h3 id="2-1-常见的攻击技巧"><a href="#2-1-常见的攻击技巧" class="headerlink" title="2.1 常见的攻击技巧"></a>2.1 常见的攻击技巧</h3><p>SQL注入可以猜解出数据库的对应版本，下面的payload判断MySQL的版本是否为4<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.site.com/news.php?id=5 and substring(@@version,1,1)=4</span><br></pre></td></tr></table></figure></p>
+<p>下面的payload利用union select来分别确认表名admin以及列名passwd是否存在<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">id=5 union all select 1,2,3 from</span><br><span class="line">id=5 union all select 1,2,passwd from admin</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-2-命令执行"><a href="#2-2-命令执行" class="headerlink" title="2.2 命令执行"></a>2.2 命令执行</h3><p>SQL注入</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/24/堡垒机/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/StarrySky.github.io/2018/08/23/test/" class="archive-article-date">
-  	<time datetime="2018-08-23T10:00:18.771Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-23</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/StarrySky.github.io/2018/08/23/test/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">博客文章发表测试</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/StarrySky.github.io/2018/08/23/test/">博客文章发表测试</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/StarrySky.github.io/2018/08/23/SQL注入学习/" class="archive-article-date">
-  	<time datetime="2018-08-23T08:19:02.151Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/StarrySky.github.io/2018/08/23/SQL注入学习/">Web安全之SQL注入(1)--整理自《白帽子谈Web安全》第七章</a>
-    </h1>
+  <div id="SOHUCS" sid="堡垒机" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "true",
+        conf: "true"
+    });
+</script>
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/StarrySky.github.io/2018/08/22/hello-world/" class="archive-article-date">
-  	<time datetime="2018-08-22T01:09:11.468Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/StarrySky.github.io/2018/08/22/hello-world/">开博客啦</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -299,8 +325,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
