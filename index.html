@@ -65,10 +65,6 @@
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
-    			
-            
-    			
     			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
@@ -143,32 +139,30 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-堡垒机学习一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-开博客啦" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/StarrySky.github.io/2018/08/24/堡垒机学习一/">堡垒机学习(一)</a>
+      <a class="article-title" href="/StarrySky.github.io/2018/08/25/开博客啦/">开博客的一些思考</a>
     </h1>
   
 
         
-        <a href="/StarrySky.github.io/2018/08/24/堡垒机学习一/" class="archive-article-date">
-  	<time datetime="2018-08-24T00:36:53.162Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-24</time>
+        <a href="/StarrySky.github.io/2018/08/25/开博客啦/" class="archive-article-date">
+  	<time datetime="2018-08-25T02:09:28.238Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近在学习堡垒机相关知识，并基于现有堡垒机的系统上进行自动化开发，本着知其然且知其所以然的精神，在这一系列我将对堡垒机的学习开发历程做一个记录。</p>
-<h2 id="1-堡垒机概念"><a href="#1-堡垒机概念" class="headerlink" title="1 堡垒机概念"></a>1 堡垒机概念</h2><p>堡垒机又称跳板机，通俗的讲是所有服务器的访问入口，相当于给服务器访问加了一道门槛，为什么要这样做？因为对于一个成熟的公司来说，安全管理一定规模的服务器至关重要，以下两点必须得以保证：<br>(1)只有特定的人才有权限访问特定的服务器，同时，权限管理也将对服务器的访问集中到一个接口，这样无疑方便了服务器访问的管理，很好理解，只留一个门便于管理。<br>(2)对访问服务器的所有操作能够记录，并能够据此精确定位责任人，以及其操作。这个功能也很好理解，对于服务器管理来说，不仅需要知道谁访问了该终端，还需要知道访问者在终端上做了什么操作，该功能是对早期纯“跳板机”的改进。<br>读者可以顾名思义，加深对于堡垒机概念的理解。何为“堡垒”？堡垒是关卡，能记录什么人在何时通过了关卡，也能决定什么人有权限访问关卡，同时还能记录通过关卡的人做了什么。把这些类比到服务器管理，就是堡垒机的作用。</p>
-<h2 id="2-堡垒机管理系统初探"><a href="#2-堡垒机管理系统初探" class="headerlink" title="2 堡垒机管理系统初探"></a>2 堡垒机管理系统初探</h2><p>公司采购了某厂商的堡垒机系统，下面我将在不涉及相关隐私的情况下对该系统的相关知识进行介绍。<br>首先要明确一个基准，堡垒机系统的开发必须牢牢围绕其主要功能：权限管理以及行为审计。<br>虽然是一个小白，但是得益于堡垒机系统的傻瓜式操作，要理解堡垒机的使用方法还是比较轻松的，关键是一些专业术语的认识，我会一一进行介绍。</p>
-<p>(1)LDAP<br>在新建用户时有LDAP导入这一选项，那么什么是LDAP呢？<br>下面内容整理自“<a href="https://www.jianshu.com/p/7e4d99f6baaf”，个人觉得作者写的很好。" target="_blank" rel="noopener">https://www.jianshu.com/p/7e4d99f6baaf”，个人觉得作者写的很好。</a><br>LDAP是轻量目录访问协议(Lightweight Directory Access Protocl)的缩写,支持TCP/IP协议，基于该标准，微软提出了AD(Active Directory)的概念。<br>那么什么是AD？<br>AD可以理解为数据库，LDAP也可以理解为数据库，数据库都有server端和client端，server端用来存放资源，client端用来支持增删查改等操作。通常所说的LDAP是指运行这个数据库的服务器。<br>AD = LDAP服务器 + LDAP应用<br>LDAP是树形存储，其存储结构如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">总结一下LDAP树形数据库如下：</span><br><span class="line">dn ：一条记录的详细位置</span><br><span class="line">dc ：一条记录所属区域    (哪一颗树)</span><br><span class="line">ou ：一条记录所属组织    （哪一个分支）</span><br><span class="line">cn/uid：一条记录的名字/ID   (哪一个苹果名字)</span><br><span class="line">LDAP目录树的最顶部就是根，也就是所谓的“基准DN<span class="string">"</span></span><br></pre></td></tr></table></figure></p>
-<p>LDAP存储适合什么样的场景呢？<br>LDAP的查询效率很高，适合于需要存储大量的数据，而且这些数据不需要经常被改动，并且需要很快速的查找。<br>最后粘上原文作者对LDAP的总结，很到位:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、LDAP的结构用树来表示，而不是用表格。正因为这样，就不能用SQL语句了。</span><br><span class="line">2、LDAP可以很快地得到查询结果，不过在写方面，就慢得多。</span><br><span class="line">3、LDAP提供了静态数据的快速查询方式。</span><br><span class="line">4、Client/server模型，Server 用于存储数据，Client提供操作目录信息树的工具。</span><br><span class="line">5、LDAP是一种开放Internet标准，LDAP协议是跨平台的Interent协议。</span><br></pre></td></tr></table></figure></p>
-<p>本文先到这里，后续会继续更新。</p>
+        <p>现在是2018年8月25日早上10点11分，是我正式写下博客第一篇文章的时间，Mark一下。</p>
+<h2 id="1-为什么要开博客？"><a href="#1-为什么要开博客？" class="headerlink" title="1 为什么要开博客？"></a>1 为什么要开博客？</h2><p>很简单，为了记录。<br>小时候很爱看各种各样的名人传记，跟随一位名人走完一生是极其有趣的事情。但我常常在想，名人在被大众所熟知之前，是和你我一样的普通人，他们的事迹不为人所知，排除传记作者就是本人的情况，作者是怎么准确记录他们的一生的？况且，就算作者就是本人，想记起自己曾经干了什么，也不容易啊。<br>其实答案很简单，因为他们是在各自领域有杰出贡献的人。正因如此，人们才愿意去研究他们，了解他们，人总是有社会关系的，要想知道一个人曾经干了什么，并不是什么难事。<br>当然，我并不奢求自己也能被立传，想想上至上古黄帝，文明曙光初照华夏；下至武帝击溃匈奴，大扬煌煌强汉之威。上下三千年，能被《史记》记录的不过百人，难度可想而知。作为一个普通人，我只想记录自己的人生历程，这样当我走在重要的人生节点时，至少我自己、我的的子孙，以及我生命中遇到的那些人们，能知道我曾经干了些什么，这就足够了。<br>所以，便有了记录的打算。</p>
+<h2 id="2-博客会写些什么？"><a href="#2-博客会写些什么？" class="headerlink" title="2 博客会写些什么？"></a>2 博客会写些什么？</h2><p>前面讲了开博的原因，当然，凡事有了由头，也要有个契机才能真正落实，我在最开始记录了今天的时间，是的，今天是我踏入职场一个半月整。<br>在工作之后，我才意识到分享是一件非常伟大、并且是正和博弈的事情，书本上根本找不到答案的技术问题，往往网上几句话就能豁然开朗。对于分享者来说，他们最先解决了问题并写成博客分享出来，这样无疑让他们加深了对问题的理解；对于被分享者来说，他们解决了很棘手的技术难题，因此双方都会有所收获。<br>所以，本博客将以技术分享为主，我会在不涉及公司及个人隐私的情况下，记录我作为一个初学者踏入职场后学习的过程，供大家参阅。<br>同时，必须说明的是，我是一个兴趣广泛的人，所以我也会记录自己对一些事情的看法，与大家分享。每篇博客我都会打上标签，供需要的读者筛选。<br>想想自己的人生记录能够帮助到别人，真是一件美妙的事情！</p>
+<p>最后，感谢Github提供的这样一个开源免费的平台，让我能够搭建属于自己的博客~~~</p>
 
       
 
@@ -181,214 +175,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/StarrySky.github.io/2018/08/24/堡垒机学习一/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/StarrySky.github.io/2018/08/23/test/">博客文章发表测试</a>
-    </h1>
-  
-
-        
-        <a href="/StarrySky.github.io/2018/08/23/test/" class="archive-article-date">
-  	<time datetime="2018-08-23T10:00:18.771Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#这是我的第一个博客</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/StarrySky.github.io/2018/08/23/test/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SQL注入学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/StarrySky.github.io/2018/08/23/SQL注入学习/">Web安全之SQL注入(1)--整理自《白帽子谈Web安全》第七章</a>
-    </h1>
-  
-
-        
-        <a href="/StarrySky.github.io/2018/08/23/SQL注入学习/" class="archive-article-date">
-  	<time datetime="2018-08-23T08:19:02.151Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>SQL注入在1998年的著名黑客杂志《Phrack》被黑客rfp首次提出。<br>网站数据获取一般与数据库进行交互，攻击者通过伪造sql语句欺骗服务器获得非授权的查询。</p>
-<h2 id="1-盲注概念"><a href="#1-盲注概念" class="headerlink" title="1 盲注概念"></a>1 盲注概念</h2><p>盲注的提出背景是Web服务器关闭了错误回显，这样，就无法获取页面反馈的数据库错误信息，因此就失去了“调试信息”。<br>因此，攻击者必须使用方法来验证注入的SQL语句是否得到执行，也就是执行不同的sql语句，并通过返回的页面信息而非数据库错误信息来判断注入是否有效。</p>
-<h3 id="1-1-盲注之Timing-Attack"><a href="#1-1-盲注之Timing-Attack" class="headerlink" title="1.1 盲注之Timing Attack"></a>1.1 盲注之Timing Attack</h3><p>Very interesting，MYSQL的官网被黑了，黑客使用的攻击手段就是SQL注入，具体的说使用了Timing Attack 方法。<br>下面介绍一下timing attack以及MYSQL是怎么被黑的:<br>首先，使用简单的条件语句，例如“and 1=2”是肯定是无法看出MYSQL官网网页异常的。因此，就要考虑使用别的方法。<br>Timing attack 利用了MYSQL里的BENCHMARK()函数。<br>该函数定义如下:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BENCHMARK(count,expr)</span><br></pre></td></tr></table></figure>
-<p>函数执行的结果是将表达式expr执行count次。也就是说，利用该函数可以让某个函数执行若干次，使得结果返回的时间比平时长，通过时间长短的变化，可以判断出注入语句是否执行成功。显然，Timing Attack也是一种盲注方法。<br>攻击者的攻击方法如下:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1170 union select <span class="keyword">if</span>(substring(current,1,1)=char(119),BENCHMARK(5000000,ENCODE(<span class="string">'MSG'</span>,<span class="string">'by 5 seconds'</span>)),null) from (select database() as current) as tbl;</span><br></pre></td></tr></table></figure>
-<p>这段payload判断库名的第一个字母是否为CHAR(119),即小写的W,若判断结果为真，则会通过BENCHMARK()函数造成较长延时；如果不为真，则该语句将很快执行完，攻击者遍历所有字母，直到将整个数据库名全部验证完成为止。</p>
-<h2 id="2-数据库攻击常见技巧"><a href="#2-数据库攻击常见技巧" class="headerlink" title="2 数据库攻击常见技巧"></a>2 数据库攻击常见技巧</h2><p>需要注意的是，针对不同的数据库，SQL注入攻击的技巧是不同的。</p>
-<h3 id="2-1-常见的攻击技巧"><a href="#2-1-常见的攻击技巧" class="headerlink" title="2.1 常见的攻击技巧"></a>2.1 常见的攻击技巧</h3><p>SQL注入可以猜解出数据库的对应版本，下面的payload判断MySQL的版本是否为4<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.site.com/news.php?id=5 and substring(@@version,1,1)=4</span><br></pre></td></tr></table></figure></p>
-<p>下面的payload利用union select来分别确认表名admin以及列名passwd是否存在<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">id=5 union all select 1,2,3 from</span><br><span class="line">id=5 union all select 1,2,passwd from admin</span><br></pre></td></tr></table></figure></p>
-<h3 id="2-2-命令执行"><a href="#2-2-命令执行" class="headerlink" title="2.2 命令执行"></a>2.2 命令执行</h3><p>SQL注入</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/StarrySky.github.io/2018/08/23/SQL注入学习/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/StarrySky.github.io/2018/08/22/hello-world/">开博客啦</a>
-    </h1>
-  
-
-        
-        <a href="/StarrySky.github.io/2018/08/22/hello-world/" class="archive-article-date">
-  	<time datetime="2018-08-22T01:09:11.468Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/StarrySky.github.io/2018/08/22/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/StarrySky.github.io/2018/08/25/开博客啦/">展开全文 >></a>
         </p>
       
 
@@ -493,25 +280,17 @@ MathJax.Hub.Queue(function() {
       
       
     
-      
-      
-      
-    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -574,10 +353,6 @@ MathJax.Hub.Queue(function() {
     	</section>
     
 
-    
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-    	</section>
     
 
     
