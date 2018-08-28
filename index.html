@@ -139,6 +139,59 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Restful API" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Restful API<br>Restful API – Representational State Transfer API ，中文译为”表现层状态转移”，相信很多人都觉得这不是人话，我也一样。下面我尽量用通俗的语言来解释这个概念:</p>
+<p>下面内容整理自<a href="https://www.imooc.com/article/17587" target="_blank" rel="noopener">https://www.imooc.com/article/17587</a> 作者：nickylau82</p>
+<h2 id="什么是表现层"><a href="#什么是表现层" class="headerlink" title="什么是表现层?"></a>什么是表现层?</h2><p>要理解表现层，首先要了解资源的概念，资源是网络上的一个实体，可以是一段文本、一首歌曲、一张图片、一个服务，总之是一种真实的存在，可以用URL指向它，每种资源都有自己独一无二的URL，要获取这个资源只需访问其URL即可。<br>现在可以解释representation(表现层)了,由于资源是一种实体，它可以有多种外在表现形式，把资源表现出来的形式称之为”表现层”。比如一段文本可以用txt格式显示、也可以用html或json等多种格式显示。<br>资源具体的表现形式，在报文头中用Accept和Content-Type指定，这两个字段就是对”表现层”的描述。<br>例如:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">accept:application/json</span><br><span class="line">accept-encoding:gzip,deflate</span><br><span class="line">accept-language:en-US,en;q=0.8</span><br><span class="line">content-type:application/json</span><br><span class="line">user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36</span><br></pre></td></tr></table></figure></p>
+<h2 id="什么是状态转移"><a href="#什么是状态转移" class="headerlink" title="什么是状态转移?"></a>什么是状态转移?</h2><p>访问一个网站，就代表了客户端和服务器的一个互动过程。在这个过程中，势必涉及到数据和状态的变化。<br>所以什么是状态？<br>互联网通信协议HTTP协议，是一个无状态协议(无状态协议:协议对于事务处理没有记忆能力，假如后面的处理需要前面的信息，则前面的信息必须重传)，这就意味着所有的状态都保存在服务器端，也就是说，客户端对服务器发起的增删查改请求历史记录都保存在服务器端。<br>通过上面的解释，状态这个概念就很好理解了，状态就是”客户端和服务器在某次会话中产生的数据，也就是保存之前发送过的请求和响应的功能”，状态转移就是对服务器的增删查改。</p>
+<h2 id="什么是表现层状态转移？"><a href="#什么是表现层状态转移？" class="headerlink" title="什么是表现层状态转移？"></a>什么是表现层状态转移？</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(1) 每个URL代表一种资源;</span><br><span class="line">(2) 客户端和服务器之间，传递这种资源的某种表现层;</span><br><span class="line">(3) 客户端通过四个HTTP动词，对服务器端资源进行操作，实现表现层状态转移。</span><br></pre></td></tr></table></figure>
+<p>再用一句话进行总结:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表现层状态转移是:URL定位资源，用HTTP动词描述操作。</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/StarrySky.github.io/2018/08/28/Restful API/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-开博客啦" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

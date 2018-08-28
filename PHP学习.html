@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>开博客啦 | StarrySky</title>
+  <title>PHP学习之字符串处理 | StarrySky</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:type" content="article">
-<meta property="og:title" content="开博客啦">
-<meta property="og:url" content="http://yoursite.com/2018/08/22/hello-world/index.html">
+  <meta name="description" content="Web漏洞出现的主要原因是没有对用户输入的字符串进行处理，所以学习在PHP环境下对字符串处理非常重要。 1 字符串的格式化4整理字符串首先要清理字符串中多余的空格，PHP使用trim()函数来整理用户输入数据中的空格，如：1$name=trim($name); trim()函数的作用是除去字符串开始位置和结束位置的空格，并将结果字符串返回。PHP为了防止用户输入的数据具有某功能，提供了转义字符串函">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PHP学习之字符串处理">
+<meta property="og:url" content="http://yoursite.com/PHP学习.html">
 <meta property="og:site_name" content="StarrySky">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="Web漏洞出现的主要原因是没有对用户输入的字符串进行处理，所以学习在PHP环境下对字符串处理非常重要。 1 字符串的格式化4整理字符串首先要清理字符串中多余的空格，PHP使用trim()函数来整理用户输入数据中的空格，如：1$name=trim($name); trim()函数的作用是除去字符串开始位置和结束位置的空格，并将结果字符串返回。PHP为了防止用户输入的数据具有某功能，提供了转义字符串函">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-22T05:39:37.454Z">
+<meta property="og:updated_time" content="2018-08-27T08:15:44.943Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="开博客啦">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="PHP学习之字符串处理">
+<meta name="twitter:description" content="Web漏洞出现的主要原因是没有对用户输入的字符串进行处理，所以学习在PHP环境下对字符串处理非常重要。 1 字符串的格式化4整理字符串首先要清理字符串中多余的空格，PHP使用trim()函数来整理用户输入数据中的空格，如：1$name=trim($name); trim()函数的作用是除去字符串开始位置和结束位置的空格，并将结果字符串返回。PHP为了防止用户输入的数据具有某功能，提供了转义字符串函">
   
     <link rel="alternative" href="/atom.xml" title="StarrySky" type="application/atom+xml">
   
@@ -63,10 +63,6 @@
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
     			
             
     			
@@ -142,36 +138,30 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      开博客啦
+      PHP学习之字符串处理
     </h1>
   
 
         
-        <a href="/StarrySky.github.io/2018/08/22/hello-world/" class="archive-article-date">
-  	<time datetime="2018-08-22T01:09:11.468Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-22</time>
+        <a href="/StarrySky.github.io/PHP学习.html" class="archive-article-date">
+  	<time datetime="2018-08-27T08:15:44.943Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <p>Web漏洞出现的主要原因是没有对用户输入的字符串进行处理，所以学习在PHP环境下对字符串处理非常重要。</p>
+<h2 id="1-字符串的格式化4"><a href="#1-字符串的格式化4" class="headerlink" title="1 字符串的格式化4"></a>1 字符串的格式化4</h2><p>整理字符串首先要清理字符串中多余的空格，PHP使用trim()函数来整理用户输入数据中的空格，如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$name</span>=trim(<span class="variable">$name</span>);</span><br></pre></td></tr></table></figure></p>
+<p>trim()函数的作用是除去字符串开始位置和结束位置的空格，并将结果字符串返回。<br>PHP为了防止用户输入的数据具有某功能，提供了转义字符串函数。也就是将字符串转义成别的字符。例如”变成\”   \变成\</p>
+<h2 id="2-2-命令执行"><a href="#2-2-命令执行" class="headerlink" title="2.2 命令执行"></a>2.2 命令执行</h2>
       
 
       
@@ -190,20 +180,6 @@
 </article>
 
   
-<nav id="article-nav">
-  
-    <a href="/StarrySky.github.io/2018/08/23/SQL注入学习/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Web安全之SQL注入(1)--整理自《白帽子谈Web安全》第七章
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -228,7 +204,7 @@
   
 
   
-  <div id="SOHUCS" sid="hello-world" ></div> 
+  <div id="SOHUCS" sid="" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
@@ -264,7 +240,7 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
@@ -316,25 +292,17 @@ MathJax.Hub.Queue(function() {
       
       
     
-      
-      
-      
-    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -397,10 +365,6 @@ MathJax.Hub.Queue(function() {
     	</section>
     
 
-    
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-    	</section>
     
 
     

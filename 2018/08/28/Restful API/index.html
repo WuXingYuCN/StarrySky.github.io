@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Web安全之SQL注入(1)--整理自《白帽子谈Web安全》第七章 | StarrySky</title>
+  <title>StarrySky</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="SQL注入在1998年的著名黑客杂志《Phrack》被黑客rfp首次提出。网站数据获取一般与数据库进行交互，攻击者通过伪造sql语句欺骗服务器获得非授权的查询。 1 盲注概念盲注的提出背景是Web服务器关闭了错误回显，这样，就无法获取页面反馈的数据库错误信息，因此就失去了“调试信息”。因此，攻击者必须使用方法来验证注入的SQL语句是否得到执行，也就是执行不同的sql语句，并通过返回的页面信息而非数">
+  <meta name="description" content="Restful APIRestful API – Representational State Transfer API ，中文译为”表现层状态转移”，相信很多人都觉得这不是人话，我也一样。下面我尽量用通俗的语言来解释这个概念: 下面内容整理自https://www.imooc.com/article/17587 作者：nickylau82 什么是表现层?要理解表现层，首先要了解资源的概念，资源是">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Web安全之SQL注入(1)--整理自《白帽子谈Web安全》第七章">
-<meta property="og:url" content="http://yoursite.com/2018/08/23/SQL注入学习/index.html">
+<meta property="og:title" content="StarrySky">
+<meta property="og:url" content="http://yoursite.com/2018/08/28/Restful API/index.html">
 <meta property="og:site_name" content="StarrySky">
-<meta property="og:description" content="SQL注入在1998年的著名黑客杂志《Phrack》被黑客rfp首次提出。网站数据获取一般与数据库进行交互，攻击者通过伪造sql语句欺骗服务器获得非授权的查询。 1 盲注概念盲注的提出背景是Web服务器关闭了错误回显，这样，就无法获取页面反馈的数据库错误信息，因此就失去了“调试信息”。因此，攻击者必须使用方法来验证注入的SQL语句是否得到执行，也就是执行不同的sql语句，并通过返回的页面信息而非数">
+<meta property="og:description" content="Restful APIRestful API – Representational State Transfer API ，中文译为”表现层状态转移”，相信很多人都觉得这不是人话，我也一样。下面我尽量用通俗的语言来解释这个概念: 下面内容整理自https://www.imooc.com/article/17587 作者：nickylau82 什么是表现层?要理解表现层，首先要了解资源的概念，资源是">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-23T10:00:08.853Z">
+<meta property="og:updated_time" content="2018-08-28T03:03:31.262Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Web安全之SQL注入(1)--整理自《白帽子谈Web安全》第七章">
-<meta name="twitter:description" content="SQL注入在1998年的著名黑客杂志《Phrack》被黑客rfp首次提出。网站数据获取一般与数据库进行交互，攻击者通过伪造sql语句欺骗服务器获得非授权的查询。 1 盲注概念盲注的提出背景是Web服务器关闭了错误回显，这样，就无法获取页面反馈的数据库错误信息，因此就失去了“调试信息”。因此，攻击者必须使用方法来验证注入的SQL语句是否得到执行，也就是执行不同的sql语句，并通过返回的页面信息而非数">
+<meta name="twitter:title" content="StarrySky">
+<meta name="twitter:description" content="Restful APIRestful API – Representational State Transfer API ，中文译为”表现层状态转移”，相信很多人都觉得这不是人话，我也一样。下面我尽量用通俗的语言来解释这个概念: 下面内容整理自https://www.imooc.com/article/17587 作者：nickylau82 什么是表现层?要理解表现层，首先要了解资源的概念，资源是">
   
     <link rel="alternative" href="/atom.xml" title="StarrySky" type="application/atom+xml">
   
@@ -63,10 +63,6 @@
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
     			
             
     			
@@ -142,37 +138,17 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-SQL注入学习" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Restful API" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Web安全之SQL注入(1)--整理自《白帽子谈Web安全》第七章
-    </h1>
-  
-
-        
-        <a href="/StarrySky.github.io/2018/08/23/SQL注入学习/" class="archive-article-date">
-  	<time datetime="2018-08-23T08:19:02.151Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-23</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>SQL注入在1998年的著名黑客杂志《Phrack》被黑客rfp首次提出。<br>网站数据获取一般与数据库进行交互，攻击者通过伪造sql语句欺骗服务器获得非授权的查询。</p>
-<h2 id="1-盲注概念"><a href="#1-盲注概念" class="headerlink" title="1 盲注概念"></a>1 盲注概念</h2><p>盲注的提出背景是Web服务器关闭了错误回显，这样，就无法获取页面反馈的数据库错误信息，因此就失去了“调试信息”。<br>因此，攻击者必须使用方法来验证注入的SQL语句是否得到执行，也就是执行不同的sql语句，并通过返回的页面信息而非数据库错误信息来判断注入是否有效。</p>
-<h3 id="1-1-盲注之Timing-Attack"><a href="#1-1-盲注之Timing-Attack" class="headerlink" title="1.1 盲注之Timing Attack"></a>1.1 盲注之Timing Attack</h3><p>Very interesting，MYSQL的官网被黑了，黑客使用的攻击手段就是SQL注入，具体的说使用了Timing Attack 方法。<br>下面介绍一下timing attack以及MYSQL是怎么被黑的:<br>首先，使用简单的条件语句，例如“and 1=2”是肯定是无法看出MYSQL官网网页异常的。因此，就要考虑使用别的方法。<br>Timing attack 利用了MYSQL里的BENCHMARK()函数。<br>该函数定义如下:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BENCHMARK(count,expr)</span><br></pre></td></tr></table></figure>
-<p>函数执行的结果是将表达式expr执行count次。也就是说，利用该函数可以让某个函数执行若干次，使得结果返回的时间比平时长，通过时间长短的变化，可以判断出注入语句是否执行成功。显然，Timing Attack也是一种盲注方法。<br>攻击者的攻击方法如下:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1170 union select <span class="keyword">if</span>(substring(current,1,1)=char(119),BENCHMARK(5000000,ENCODE(<span class="string">'MSG'</span>,<span class="string">'by 5 seconds'</span>)),null) from (select database() as current) as tbl;</span><br></pre></td></tr></table></figure>
-<p>这段payload判断库名的第一个字母是否为CHAR(119),即小写的W,若判断结果为真，则会通过BENCHMARK()函数造成较长延时；如果不为真，则该语句将很快执行完，攻击者遍历所有字母，直到将整个数据库名全部验证完成为止。</p>
-<h2 id="2-数据库攻击常见技巧"><a href="#2-数据库攻击常见技巧" class="headerlink" title="2 数据库攻击常见技巧"></a>2 数据库攻击常见技巧</h2><p>需要注意的是，针对不同的数据库，SQL注入攻击的技巧是不同的。</p>
-<h3 id="2-1-常见的攻击技巧"><a href="#2-1-常见的攻击技巧" class="headerlink" title="2.1 常见的攻击技巧"></a>2.1 常见的攻击技巧</h3><p>SQL注入可以猜解出数据库的对应版本，下面的payload判断MySQL的版本是否为4<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.site.com/news.php?id=5 and substring(@@version,1,1)=4</span><br></pre></td></tr></table></figure></p>
-<p>下面的payload利用union select来分别确认表名admin以及列名passwd是否存在<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">id=5 union all select 1,2,3 from</span><br><span class="line">id=5 union all select 1,2,passwd from admin</span><br></pre></td></tr></table></figure></p>
-<h3 id="2-2-命令执行"><a href="#2-2-命令执行" class="headerlink" title="2.2 命令执行"></a>2.2 命令执行</h3><p>SQL注入</p>
+        <p>Restful API<br>Restful API – Representational State Transfer API ，中文译为”表现层状态转移”，相信很多人都觉得这不是人话，我也一样。下面我尽量用通俗的语言来解释这个概念:</p>
+<p>下面内容整理自<a href="https://www.imooc.com/article/17587" target="_blank" rel="noopener">https://www.imooc.com/article/17587</a> 作者：nickylau82</p>
+<h2 id="什么是表现层"><a href="#什么是表现层" class="headerlink" title="什么是表现层?"></a>什么是表现层?</h2><p>要理解表现层，首先要了解资源的概念，资源是网络上的一个实体，可以是一段文本、一首歌曲、一张图片、一个服务，总之是一种真实的存在，可以用URL指向它，每种资源都有自己独一无二的URL，要获取这个资源只需访问其URL即可。<br>现在可以解释representation(表现层)了,由于资源是一种实体，它可以有多种外在表现形式，把资源表现出来的形式称之为”表现层”。比如一段文本可以用txt格式显示、也可以用html或json等多种格式显示。<br>资源具体的表现形式，在报文头中用Accept和Content-Type指定，这两个字段就是对”表现层”的描述。<br>例如:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">accept:application/json</span><br><span class="line">accept-encoding:gzip,deflate</span><br><span class="line">accept-language:en-US,en;q=0.8</span><br><span class="line">content-type:application/json</span><br><span class="line">user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36</span><br></pre></td></tr></table></figure></p>
+<h2 id="什么是状态转移"><a href="#什么是状态转移" class="headerlink" title="什么是状态转移?"></a>什么是状态转移?</h2><p>访问一个网站，就代表了客户端和服务器的一个互动过程。在这个过程中，势必涉及到数据和状态的变化。<br>所以什么是状态？<br>互联网通信协议HTTP协议，是一个无状态协议(无状态协议:协议对于事务处理没有记忆能力，假如后面的处理需要前面的信息，则前面的信息必须重传)，这就意味着所有的状态都保存在服务器端，也就是说，客户端对服务器发起的增删查改请求历史记录都保存在服务器端。<br>通过上面的解释，状态这个概念就很好理解了，状态就是”客户端和服务器在某次会话中产生的数据，也就是保存之前发送过的请求和响应的功能”，状态转移就是对服务器的增删查改。</p>
+<h2 id="什么是表现层状态转移？"><a href="#什么是表现层状态转移？" class="headerlink" title="什么是表现层状态转移？"></a>什么是表现层状态转移？</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(1) 每个URL代表一种资源;</span><br><span class="line">(2) 客户端和服务器之间，传递这种资源的某种表现层;</span><br><span class="line">(3) 客户端通过四个HTTP动词，对服务器端资源进行操作，实现表现层状态转移。</span><br></pre></td></tr></table></figure>
+<p>再用一句话进行总结:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表现层状态转移是:URL定位资源，用HTTP动词描述操作。</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -194,18 +170,9 @@
   
 <nav id="article-nav">
   
-    <a href="/StarrySky.github.io/2018/08/23/test/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          博客文章发表测试
-        
-      </div>
-    </a>
   
-  
-    <a href="/StarrySky.github.io/2018/08/22/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">开博客啦</div>
+    <a href="/StarrySky.github.io/2018/08/25/开博客啦/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">开博客的一些思考</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -235,7 +202,7 @@
   
 
   
-  <div id="SOHUCS" sid="SQL注入学习" ></div> 
+  <div id="SOHUCS" sid="Restful API" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
@@ -323,25 +290,17 @@ MathJax.Hub.Queue(function() {
       
       
     
-      
-      
-      
-    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -404,10 +363,6 @@ MathJax.Hub.Queue(function() {
     	</section>
     
 
-    
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-    	</section>
     
 
     
